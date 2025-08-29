@@ -20,7 +20,6 @@ El objetivo es estandarizar la creación de VPCs, garantizando compliance con la
 
 ## Usage
 ### Despliegue Básico
-```bash
 aws cloudformation create-stack \
   --stack-name cliente-proyecto-dev-vpc \
   --template-body file://vpc.yml \
