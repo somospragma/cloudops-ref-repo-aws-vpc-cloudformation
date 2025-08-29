@@ -1,0 +1,61 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Plantilla para desplegar una vpc
+
+Parameters:
+  pVpcCidr:
+    Type: String
+    Description: Rango CIDR de la VPC
+  pCustomerName:
+    Type: String
+    Description: Nombre del cliente
+  pProjectName:
+    Type: String
+    Description: Nombre del proyecto 
+  pEnviroment:
+    Type: String
+    AllowedValues: [qa, dev, pdn, prepdn]
+    Description: Ambiente del despliegue
+  pServiceType:
+    Type: String
+    Description: Tipo de servicio que se esta desplegando
+  pAplication:
+    Type: String
+    Description: Aplicacion, servicio o funcionalidad del negocio
+  pCostCenter:
+    Type: Number
+    AllowedValues: [9904, 6621, 1222]
+    Description: Centro de costos que pertenece este recurso
+  pOwner:
+    Type: String
+    Description: Nombre de la persona encargada del proyecto
+  pArea:
+    Type: String
+    Description: Nombre del area
+
+Resources:
+  rMiVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref pVpcCidr
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      InstanceTenancy: default
+      Tags:
+        - Key: Name
+          Value: !Sub ${pCustomerName}-${pProjectName}-${pEnviroment}-${pServiceType}-${pAplication}
+        - Key: environment
+          Value: !Ref pEnviroment
+        - Key: project-name
+          Value: !Ref pProjectName
+        - Key: cost-center
+          Value: !Ref pCostCenter
+        - Key: owner
+          Value: !Ref pOwner
+        - Key: area
+          Value: !Ref pArea
+
+
+Outputs:
+  oVPCId:
+    Description: ID de la VPC creada
+    Value: !Ref rMiVPC
