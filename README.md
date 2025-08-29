@@ -17,7 +17,6 @@ El objetivo es estandarizar la creación de VPCs, garantizando compliance con la
 │ └─────────────────────────────────────────┘ │
 └─────────────────────────────────────────────┘
 
-
 ## Usage
 ### Despliegue Básico
 aws cloudformation create-stack \
