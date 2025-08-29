@@ -5,20 +5,22 @@ Este template de CloudFormation permite desplegar una VPC en AWS con configuraci
 El objetivo es estandarizar la creación de VPCs, garantizando compliance con las políticas de seguridad y gestión de costos, así como la correcta identificación de recursos en entornos **QA, Dev, Preproducción y Producción**.
 
 ## Architecture
-┌─────────────────────────────────────────────┐
-│                AWS Account                  │
+```
+┌──────────────────────────────────────────────┐
+│ AWS Account │
 │ ┌─────────────────────────────────────────┐ │
-│ │                 VPC                     │ │
-│ │  • CIDR: definido por parámetro         │ │
-│ │  • DNS Support: habilitado              │ │
-│ │  • DNS Hostnames: habilitado            │ │
-│ │  • Tenancy: default                     │ │
-│ │  • Tags: governance completo            │ │
+│ │ VPC │ │
+│ │ • CIDR: definido por parámetro │ │
+│ │ • DNS Support: habilitado │ │
+│ │ • DNS Hostnames: habilitado │ │
+│ │ • Tenancy: default │ │
+│ │ • Tags: governance completo │ │
 │ └─────────────────────────────────────────┘ │
-└─────────────────────────────────────────────┘
-
+└──────────────────────────────────────────────┘
+```
 ## Usage
 ### Despliegue Básico
+```bash
 aws cloudformation create-stack \\
   --stack-name cliente-proyecto-dev-vpc \\
   --template-body file://vpc.yml \\
