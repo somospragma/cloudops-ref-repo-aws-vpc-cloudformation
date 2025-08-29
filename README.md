@@ -6,14 +6,14 @@ El objetivo es estandarizar la creación de VPCs, garantizando compliance con la
 
 ## Architecture
 ┌─────────────────────────────────────────────┐
-│                AWS Account                  │
+│ AWS Account │
 │ ┌─────────────────────────────────────────┐ │
-│ │                 VPC                     │ │
-│ │  • CIDR: definido por parámetro         │ │
-│ │  • DNS Support: habilitado              │ │
-│ │  • DNS Hostnames: habilitado            │ │
-│ │  • Tenancy: default                     │ │
-│ │  • Tags: governance completo            │ │
+│ │ VPC │ │
+│ │ • CIDR: definido por parámetro │ │
+│ │ • DNS Support: habilitado │ │
+│ │ • DNS Hostnames: habilitado │ │
+│ │ • Tenancy: default │ │
+│ │ • Tags: governance completo │ │
 │ └─────────────────────────────────────────┘ │
 └─────────────────────────────────────────────┘
 
