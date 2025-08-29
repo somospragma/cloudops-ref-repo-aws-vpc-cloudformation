@@ -20,7 +20,7 @@ El objetivo es estandarizar la creación de VPCs, garantizando compliance con la
 ```
 ## Usage
 ### Despliegue Básico
-```bash
+```
 aws cloudformation create-stack \
   --stack-name cliente-proyecto-dev-vpc \
   --template-body file://vpc.yml \
@@ -34,14 +34,16 @@ aws cloudformation create-stack \
     ParameterKey=pCostCenter,ParameterValue=9904 \
     ParameterKey=pOwner,ParameterValue=DevOps.Team \
     ParameterKey=pArea,ParameterValue=TI
-
+```
 ### Usando Archivo de Parámetros
+```
 aws cloudformation create-stack \
   --stack-name cliente-proyecto-dev-vpc \
   --template-body file://vpc.yml \
   --parameters file://sample/vpc-parameters.json
-
+```
 ### Ejemplos en entorno de producción
+```
 {
   "Parameters": [
     { "ParameterKey": "pVpcCidr", "ParameterValue": "172.16.0.0/16" },
