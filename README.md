@@ -40,7 +40,7 @@ aws cloudformation create-stack \
   --stack-name cliente-proyecto-dev-vpc \
   --template-body file://vpc.yml \
   --parameters file://sample/vpc-parameters.json
-```
+
 ### Ejemplos en entorno de producción
 {
   "Parameters": [
@@ -55,7 +55,7 @@ aws cloudformation create-stack \
     { "ParameterKey": "pArea", "ParameterValue": "Operaciones" }
   ]
 }
-
+```
 ## Requirements
 |       NAME      |                     VERSION                        |
 | --------------- | -------------------------------------------------- |
