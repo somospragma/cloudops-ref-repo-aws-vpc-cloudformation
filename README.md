@@ -6,37 +6,37 @@ El objetivo es estandarizar la creación de VPCs, garantizando compliance con la
 
 ## Architecture
 ┌─────────────────────────────────────────────┐
-│ AWS Account │
+│                AWS Account                  │
 │ ┌─────────────────────────────────────────┐ │
-│ │ VPC │ │
-│ │ • CIDR: definido por parámetro │ │
-│ │ • DNS Support: habilitado │ │
-│ │ • DNS Hostnames: habilitado │ │
-│ │ • Tenancy: default │ │
-│ │ • Tags: governance completo │ │
+│ │                 VPC                     │ │
+│ │  • CIDR: definido por parámetro         │ │
+│ │  • DNS Support: habilitado              │ │
+│ │  • DNS Hostnames: habilitado            │ │
+│ │  • Tenancy: default                     │ │
+│ │  • Tags: governance completo            │ │
 │ └─────────────────────────────────────────┘ │
 └─────────────────────────────────────────────┘
 
 ## Usage
 ### Despliegue Básico
-aws cloudformation create-stack \
-  --stack-name cliente-proyecto-dev-vpc \
-  --template-body file://vpc.yml \
-  --parameters \
-    ParameterKey=pVpcCidr,ParameterValue=10.0.0.0/16 \
-    ParameterKey=pCustomerName,ParameterValue=Pragma \
-    ParameterKey=pProjectName,ParameterValue=VulcanoProject \
-    ParameterKey=pEnviroment,ParameterValue=dev \
-    ParameterKey=pServiceType,ParameterValue=Networking \
-    ParameterKey=pAplication,ParameterValue=CoreNetwork \
-    ParameterKey=pCostCenter,ParameterValue=9904 \
-    ParameterKey=pOwner,ParameterValue=DevOps.Team \
+aws cloudformation create-stack \\
+  --stack-name cliente-proyecto-dev-vpc \\
+  --template-body file://vpc.yml \\
+  --parameters \\
+    ParameterKey=pVpcCidr,ParameterValue=10.0.0.0/16 \\
+    ParameterKey=pCustomerName,ParameterValue=Pragma \\
+    ParameterKey=pProjectName,ParameterValue=VulcanoProject \\
+    ParameterKey=pEnviroment,ParameterValue=dev \\
+    ParameterKey=pServiceType,ParameterValue=Networking \\
+    ParameterKey=pAplication,ParameterValue=CoreNetwork \\
+    ParameterKey=pCostCenter,ParameterValue=9904 \\
+    ParameterKey=pOwner,ParameterValue=DevOps.Team \\
     ParameterKey=pArea,ParameterValue=TI
 
 ### Usando Archivo de Parámetros
-aws cloudformation create-stack \
-  --stack-name cliente-proyecto-dev-vpc \
-  --template-body file://vpc.yml \
+aws cloudformation create-stack \\
+  --stack-name cliente-proyecto-dev-vpc \\
+  --template-body file://vpc.yml \\
   --parameters file://sample/vpc-parameters.json
 
 ### Ejemplos en entorno de producción
